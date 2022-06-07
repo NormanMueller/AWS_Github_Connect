@@ -5,7 +5,7 @@ from src.Wizard_Game.player import Player
 import collections
 import random
 from typing import Dict, Type, List
-
+#test
 
 class Game:
     def __init__(self, player_count_input, player_names, cards=Cards()):
