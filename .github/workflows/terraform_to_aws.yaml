@@ -5,6 +5,9 @@ on: [push]
 jobs:
   terraform_apply:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./terraform_code/terraform
     steps:
     - uses: actions/checkout@v1
 
