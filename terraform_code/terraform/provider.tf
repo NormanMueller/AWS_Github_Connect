@@ -1,11 +1,14 @@
+locals {
+  my_python_version = "python3.6"
+  my_aws_region     = "eu-central-1"
+}
+
 terraform {
   required_version = ">= 0.13"
   backend "s3" {
-    # Replace this with your bucket name!
-    bucket = "terraform-up-and-running-state-nm-test"
-    key    = "global/s3/terraform.tfstate"
-    region = "eu-central-1"
-    # Replace this with your DynamoDB table name!
+    bucket         = "terraform-up-and-running-state-nm-test"
+    key            = "global/s3/terraform.tfstate"
+    region         = "eu-central-1"
     dynamodb_table = "terraform-up-and-running-locks"
     encrypt        = true
   }
@@ -18,6 +21,6 @@ terraform {
 }
 
 provider "aws" {
-  region = "eu-central-1"
+  region = local.my_aws_region
 }
 

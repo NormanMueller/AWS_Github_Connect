@@ -7,3 +7,12 @@ resource "aws_dynamodb_table" "terraform_locks" {
     type = "S"
   }
 }
+
+
+data "aws_s3_bucket" "table_data" {
+  bucket = "terraform-up-and-running-state-nm-test"
+}
+
+output "foo" {
+  value = data.aws_s3_bucket.table_data.id == "2" ? "yes" : "no"
+}
